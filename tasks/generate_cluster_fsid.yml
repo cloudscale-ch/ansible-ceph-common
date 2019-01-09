@@ -20,7 +20,7 @@
   changed_when: false
   register: cluster_uuid
   become: false
-  always_run: true
+  check_mode: False
   when: generate_fsid
 
 - name: set fsid fact when generate_fsid = true

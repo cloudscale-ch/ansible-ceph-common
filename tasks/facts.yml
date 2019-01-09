@@ -2,7 +2,7 @@
 - name: get ceph version
   command: ceph --version
   changed_when: false
-  always_run: yes
+  check_mode: False
   register: ceph_version
 
 # this task shouldn't run in a rolling_update situation
@@ -12,7 +12,7 @@
   command: ceph --connect-timeout 3 --cluster {{ cluster }} fsid
   changed_when: false
   failed_when: false
-  always_run: yes
+  check_mode: False
   register: ceph_current_fsid
   delegate_to: "{{ groups[mon_group_name][0] }}"
   when: not rolling_update
