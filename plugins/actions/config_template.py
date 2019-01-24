@@ -633,7 +633,7 @@ class ActionModule(ActionBase):
             dict(
                 src=transferred_data,
                 dest=_vars['dest'],
-                original_basename=os.path.basename(source),
+                _original_basename=os.path.basename(source),
                 follow=True,
             ),
         )
